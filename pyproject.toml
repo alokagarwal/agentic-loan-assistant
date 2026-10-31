@@ -1,0 +1,23 @@
+[project]
+name = "agentic-loan-assistant"
+version = "0.1.0"
+description = "Add your description here"
+readme = "README.md"
+authors = [
+    { name = "techwithalok", email = "learntechwithalok@gmail.com" }
+]
+requires-python = ">=3.12"
+dependencies = [
+    "aws-opentelemetry-distro>=0.21.0",
+    "bedrock-agentcore>=1.25.1",
+    "boto3>=1.43.120",
+    "langchain-aws>=1.9.1",
+    "langgraph>=1.2.18",
+]
+
+[project.scripts]
+agentic-loan-assistant = "agentic_loan_assistant:main"
+
+[build-system]
+requires = ["uv_build>=0.13.0,<0.14.0"]
+build-backend = "uv_build"

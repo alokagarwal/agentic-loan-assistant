@@ -1,0 +1,15 @@
+aws bedrock-agentcore invoke-agent-runtime \
+  --agent-runtime-arn "$(terraform output -raw agent_runtime_arn)" \
+  --runtime-session-id "demo-session-approve-0001-$(date +%s)" \
+  --payload '{"application_id": "123", "loan_amount": 10000}' \
+  --cli-binary-format raw-in-base64-out \
+  --region us-east-1 \
+  response.json && cat response.json
+
+aws bedrock-agentcore invoke-agent-runtime \
+  --agent-runtime-arn "$(terraform output -raw agent_runtime_arn)" \
+  --runtime-session-id "demo-session-reject-0002-$(date +%s)" \
+  --payload '{"application_id": "456", "loan_amount": 50000}' \
+  --cli-binary-format raw-in-base64-out \
+  --region us-east-1 \
+  response2.json && cat response2.json
